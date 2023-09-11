@@ -1,52 +1,43 @@
-package com.example.backendsp2.model;
+package com.example.backendsp2.dto;
 
-import org.hibernate.annotations.CreationTimestamp;
+import com.example.backendsp2.model.Brands;
+import com.example.backendsp2.model.Image;
+import com.example.backendsp2.model.ProductType;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
-@Entity
-public class ProductRacing {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductRacingDTO {
     private Long id;
-    @Column(name = "name_racing")
+    @NotBlank
     private String nameRacing;
+    @NotBlank
     private Long price;
-    private String content;
+    @NotBlank
+    private String note;
+    @NotBlank
     private Integer quantity;
-    @CreationTimestamp
-    @Column(name = "create_date", columnDefinition = "TIMESTAMP DEFAULT now()")
     private LocalDateTime createDate;
-    @ManyToOne
-    @JoinColumn(name = "id_type")
+    @NotBlank
     private ProductType productType;
-    @ManyToOne
-    @JoinColumn(name = "id_brand")
+    @NotBlank
     private Brands brands;
+    @NotBlank
+    private Image image;
 
-    public ProductRacing() {
+    public ProductRacingDTO() {
     }
 
-    public ProductRacing(Long id, String nameRacing, Long price, String content, Integer quantity, LocalDateTime createDate, ProductType productType) {
+    public ProductRacingDTO(Long id, String nameRacing, Long price, String note, Integer quantity, LocalDateTime createDate, ProductType productType, Brands brands, Image image) {
         this.id = id;
         this.nameRacing = nameRacing;
         this.price = price;
-        this.content = content;
-        this.quantity = quantity;
-        this.createDate = createDate;
-        this.productType = productType;
-    }
-
-    public ProductRacing(Long id, String nameRacing, Long price, String content, Integer quantity, LocalDateTime createDate, ProductType productType, Brands brands) {
-        this.id = id;
-        this.nameRacing = nameRacing;
-        this.price = price;
-        this.content = content;
+        this.note = note;
         this.quantity = quantity;
         this.createDate = createDate;
         this.productType = productType;
         this.brands = brands;
+        this.image = image;
     }
 
     public Long getId() {
@@ -73,12 +64,12 @@ public class ProductRacing {
         this.price = price;
     }
 
-    public String getContent() {
-        return content;
+    public String getNote() {
+        return note;
     }
 
-    public void setContent(String note) {
-        this.content = note;
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public Integer getQuantity() {
@@ -113,4 +104,11 @@ public class ProductRacing {
         this.brands = brands;
     }
 
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 }
