@@ -3,6 +3,7 @@ package com.example.backendsp2.service.impl;
 import com.example.backendsp2.config.JwtUserDetails;
 import com.example.backendsp2.model.Users;
 import com.example.backendsp2.repository.IUsersRepository;
+import com.example.backendsp2.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,9 +18,11 @@ import java.util.List;
 
 
 @Service
-public class UsersService implements UserDetailsService {
+public class UsersService implements UserDetailsService, IUsersService {
     @Autowired
     private IUsersRepository iUsersRepository;
+    @Autowired
+    private IUsersService iUsersService;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -35,5 +38,8 @@ public class UsersService implements UserDetailsService {
         return new JwtUserDetails(users.getId(), users.getUserName(), users.getPass(), authorities);
     }
 
-
+    @Override
+    public Users findByUserName(String username) {
+        return iUsersRepository.findByUserName(username);
+    }
 }

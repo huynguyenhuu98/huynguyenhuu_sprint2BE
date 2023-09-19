@@ -40,6 +40,13 @@ public class OrdersDetail {
         this.orders = orders;
     }
 
+    public OrdersDetail(Integer quantity, Long price, ProductRacing productRacing, Orders orders) {
+        this.quantity = quantity;
+        this.price = price;
+        this.productRacing = productRacing;
+        this.orders = orders;
+    }
+
     public Long getId() {
         return id;
     }

@@ -14,13 +14,12 @@ import java.util.List;
 @CrossOrigin("*")
 public class ImageController {
 
-        @Autowired
-        private IImageService iImagesService;
+    @Autowired
+    private IImageService iImagesService;
 
-        @GetMapping("/list/{id}")
-        public ResponseEntity<List<Image>> getAllImages(@PathVariable("id") Long id) {
-            List<Image> image = iImagesService.findAllImage(id);
-            return new ResponseEntity<>(image, HttpStatus.OK);
-        }
-
+    @GetMapping("/list/{id}")
+    public ResponseEntity<List<Image>> getAllImages(@PathVariable("id") Long id) {
+        List<Image> image = iImagesService.findAllImage(id);
+        return new ResponseEntity<>(image, HttpStatus.OK);
+    }
 }

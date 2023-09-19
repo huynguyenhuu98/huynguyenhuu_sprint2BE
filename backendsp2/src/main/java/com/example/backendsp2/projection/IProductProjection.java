@@ -8,4 +8,6 @@ public interface IProductProjection {
     String getPrice();
 
     String getImage();
+    String getQuantity();
+    String getProductType();
 }

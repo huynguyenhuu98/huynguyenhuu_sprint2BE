@@ -11,8 +11,8 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "total_price")
-    private Long totalPrice;
-    @Column(name = "code_orders" ,nullable = false)
+    private int totalPrice;
+    @Column(name = "code_orders" )
     private String codeOrders;
     @ManyToOne
     @JoinColumn(name = "id_customers")
@@ -24,12 +24,13 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(Long totalPrice, Customers customers) {
+    public Orders(int totalPrice, String codeOrders, Customers customers) {
         this.totalPrice = totalPrice;
+        this.codeOrders = codeOrders;
         this.customers = customers;
     }
 
-    public Orders(Long id, Long totalPrice, String codeOrders, Customers customers, LocalDateTime createDate) {
+    public Orders(Long id, int totalPrice, String codeOrders, Customers customers, LocalDateTime createDate) {
         this.id = id;
         this.totalPrice = totalPrice;
         this.codeOrders = codeOrders;
@@ -45,11 +46,11 @@ public class Orders {
         this.id = id;
     }
 
-    public Long getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Long totalPrice) {
+    public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
 

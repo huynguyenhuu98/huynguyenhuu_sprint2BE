@@ -14,6 +14,7 @@ public class ProductRacing {
     private String nameRacing;
     private Long price;
     private String content;
+    private String images;
     private Integer quantity;
     @CreationTimestamp
     @Column(name = "create_date", columnDefinition = "TIMESTAMP DEFAULT now()")
@@ -43,6 +44,18 @@ public class ProductRacing {
         this.nameRacing = nameRacing;
         this.price = price;
         this.content = content;
+        this.quantity = quantity;
+        this.createDate = createDate;
+        this.productType = productType;
+        this.brands = brands;
+    }
+
+    public ProductRacing(Long id, String nameRacing, Long price, String content, String images, Integer quantity, LocalDateTime createDate, ProductType productType, Brands brands) {
+        this.id = id;
+        this.nameRacing = nameRacing;
+        this.price = price;
+        this.content = content;
+        this.images = images;
         this.quantity = quantity;
         this.createDate = createDate;
         this.productType = productType;
@@ -113,4 +126,11 @@ public class ProductRacing {
         this.brands = brands;
     }
 
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
 }
