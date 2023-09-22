@@ -1,13 +1,6 @@
 package com.example.backendsp2.controllers;
 
 import com.example.backendsp2.config_vnpay.VnpayConfig;
-//import com.example.backendsp2.model.Customer;
-//import com.example.backendsp2.model.Seat;
-//import com.example.backendsp2.model.Ticket;
-//import com.example.backendsp2.repository.ITicketRepo;
-//import com.example.backendsp2.service.ICustomerService;
-//import com.example.backendsp2.service.ISeatService;
-//import com.example.backendsp2.service.ITicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,12 +21,6 @@ import java.util.*;
 @CrossOrigin("*")
 @RequestMapping("/api/vnpay")
 public class VnpayControler {
-//    @Autowired
-//    private ICustomerService customerService;
-//    @Autowired
-//    private ITicketService ticketService;
-//    @Autowired
-//    private ISeatService seatService;
 
     @PostMapping("/create_payment")
     public ResponseEntity<?> create(@RequestParam int total)
@@ -44,7 +31,7 @@ public class VnpayControler {
 //        String bankCode = req.getParameter("bankCode");
 
 
-        String amount = String.valueOf(total * 1);
+        String amount = String.valueOf(total * 10);
 //        String amount = "10000000";
         String vnp_TxnRef = VnpayConfig.getRandomNumber(8);
 //        String vnp_IpAddr = Config.getIpAddress(req);

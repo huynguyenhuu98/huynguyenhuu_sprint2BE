@@ -25,7 +25,7 @@ public class ProductRacingController {
     private IProductRacingService iProductRacingService;
 
     @GetMapping("")
-    public ResponseEntity<Page<IProductProjection>> getProductRacing(@PageableDefault(sort = "name_racing", direction = Sort.Direction.DESC, size = 30) Pageable pageable,
+    public ResponseEntity<Page<IProductProjection>> getProductRacing(@PageableDefault(sort = "name_racing", direction = Sort.Direction.DESC, size = 44) Pageable pageable,
                                                                      @RequestParam(required = false, defaultValue = "") String nameSearch) {
         Page<IProductProjection> productRacingPage = iProductRacingService.getProductRacing(pageable, nameSearch);
         if (productRacingPage.isEmpty() && productRacingPage == null) {
@@ -40,12 +40,17 @@ public class ProductRacingController {
                                                                      @RequestParam(value = "productType", defaultValue = "") String productType,
                                                                      @RequestParam(value = "orderBy", defaultValue = "0") String orderBy) {
         Sort sort = checkOrderBy(orderBy);
-        Pageable pageable = PageRequest.of(page, 8, sort);
-        Page<IProductProjection> productRacingPage = iProductRacingService.getProduct(pageable, nameSearch,productType);
-        if (productRacingPage.isEmpty() && productRacingPage == null) {
+        Pageable pageable = PageRequest.of(page, 44, sort);
+//        Page<IProductProjection> productRacingPage = iProductRacingService.getProduct(pageable, nameSearch,productType);
+//        if (productRacingPage.isEmpty() && productRacingPage == null) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//        return new ResponseEntity<>(productRacingPage, HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(iProductRacingService.getProduct(pageable, nameSearch, productType), HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(productRacingPage, HttpStatus.OK);
     }
 
     public Sort checkOrderBy(String orderBy) {
@@ -55,7 +60,10 @@ public class ProductRacingController {
                 sort = Sort.by("id").descending();
                 break;
             case "a-z":
-                sort = Sort.by("name").ascending();
+                sort = Sort.by("nameRacing").ascending();
+                break;
+            case "z-a":
+                sort = Sort.by("nameRacing").descending();
                 break;
             case "priceAscending":
                 sort = Sort.by("price").ascending();
@@ -64,7 +72,7 @@ public class ProductRacingController {
                 sort = Sort.by("price").descending();
                 break;
             default:
-                sort = Sort.by("id").descending();
+                sort = Sort.by("id").ascending();
                 break;
         }
         return sort;

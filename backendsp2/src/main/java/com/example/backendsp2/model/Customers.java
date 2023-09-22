@@ -13,6 +13,8 @@ public class Customers {
     @Column(name = "name_customer")
     private String nameCustomer;
     private String birthday;
+    private String image;
+    private String member;
     private Integer gender;
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -33,10 +35,12 @@ public class Customers {
         this.users = users;
     }
 
-    public Customers(Long id, String nameCustomer, String birthday, Integer gender, String phoneNumber, String address, String email, LocalDateTime createDate, Users users) {
+    public Customers(Long id, String nameCustomer, String birthday, String image, String member, Integer gender, String phoneNumber, String address, String email, LocalDateTime createDate, Users users) {
         this.id = id;
         this.nameCustomer = nameCustomer;
         this.birthday = birthday;
+        this.image = image;
+        this.member = member;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -121,5 +125,21 @@ public class Customers {
 
     public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getMember() {
+        return member;
+    }
+
+    public void setMember(String member) {
+        this.member = member;
     }
 }

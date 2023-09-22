@@ -51,7 +51,11 @@ public class ShoppingCartController {
             Carts shoppingCart = iCartsService.findByCustomersProduct(customers, productRacing);
             if (shoppingCart != null) {
                 Integer amount = shoppingCart.getQuantity() + quantity;
-                shoppingCart.setQuantity(amount);
+                if (amount<=productRacing.getQuantity()){
+                    shoppingCart.setQuantity(amount);
+                }else {
+                    productRacing.setQuantity(productRacing.getQuantity());
+                }
                 iCartsService.add(shoppingCart);
                 return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
             }
@@ -70,10 +74,14 @@ public class ShoppingCartController {
 
     @PatchMapping("/{setQuantity}/{id}")
     @PreAuthorize("hasAnyRole('ROLE_CUSTOMER')")
-    public ResponseEntity<?> setQuantityCart(@PathVariable Integer setQuantity, @PathVariable Long id) {
+    public ResponseEntity<?> setQuantityCart(HttpServletRequest httpServletRequest,@PathVariable Integer setQuantity, @PathVariable Long id) {
+        String header = httpServletRequest.getHeader("Authorization");
+        String token = header.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
         try {
-            iCartsService.setQuantityShoppingCart(setQuantity, id);
-            return new ResponseEntity<>(HttpStatus.OK);
+
+//            iCartsService.setQuantityShoppingCart(setQuantity, id);
+            return new ResponseEntity<>(iCartsService.setQuantityShoppingCart(setQuantity, id),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

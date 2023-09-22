@@ -6,6 +6,10 @@ import com.example.backendsp2.repository.IOrdersRepository;
 import com.example.backendsp2.service.*;
 import com.example.backendsp2.service.impl.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -49,10 +53,15 @@ public class OrderAndOrderDetailController {
         String username = authentication.getName();
         Users users = iUsersService.findByUserName(username);
         Customers customers = iCustomerService.getUsersId(users.getId());
-
+        long code;
+        Random random = new Random();
+        long min = 1000;
+        long max = 9999;
+        code = random.nextLong() % (max - min + 1) + min;
+        String orderCode = "OD-" + code;
         Orders orders = new Orders();
         orders.setCustomers(customers);
-        orders.setCodeOrders("111");
+        orders.setCodeOrders(orderCode);
         orders.setTotalPrice(totalPrice);
         orders.setCreateDate(LocalDateTime.now());
         iOrdersService.save(orders);
@@ -165,19 +174,26 @@ public class OrderAndOrderDetailController {
 
 
     @GetMapping("/history")
-    @PreAuthorize("hasAnyRole('ROLE_CUSTOMER','ROLE_ADMIN')")
-    public ResponseEntity<List<Orders>> getAll(HttpServletRequest httpServletRequest) {
+    @PreAuthorize("hasAnyRole('ROLE_CUSTOMER')")
+    public ResponseEntity<Page<Orders>> getAll(@PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 100) Pageable pageable, HttpServletRequest httpServletRequest) {
         String header = httpServletRequest.getHeader("Authorization");
         String token = header.substring(7);
         String username = jwtTokenUtil.getUsernameFromToken(token);
         Customers customers = iCustomerService.findUsersId(username);
 
         if (customers != null) {
-            List<Orders> ordersList = iOrdersService.findAll(customers.getId());
+            Page<Orders> ordersList = iOrdersService.findAll(pageable, customers.getId());
             return new ResponseEntity<>(ordersList, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/historyAll")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public ResponseEntity<Page<Orders>> getAllHistory(@PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 100) Pageable pageable) {
+        Page<Orders> ordersList = iOrdersService.findAllOrder(pageable);
+        return new ResponseEntity<>(ordersList, HttpStatus.OK);
     }
 
     @GetMapping("/history/detail")

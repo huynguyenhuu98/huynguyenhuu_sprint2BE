@@ -1,0 +1,57 @@
+
+x
+java:S1104"VMake vnp_PayUrl a static final constant or non-public and provide accessors if needed.(—°ÀÍşÿÿÿÿ8Óíõø©1
+{
+java:S1104"YMake vnp_Returnurl a static final constant or non-public and provide accessors if needed.(·€ÒÙúÿÿÿÿ8Ôíõø©1
+t
+java:S1104"WMake vnp_Version a static final constant or non-public and provide accessors if needed.(¢ğúÖ8Á©öù©1
+s
+java:S1104"WMake vnp_Command a static final constant or non-public and provide accessors if needed.(Íò18Á©öù©1
+y
+java:S1104"WMake vnp_TmnCode a static final constant or non-public and provide accessors if needed.(ûÍãùÿÿÿÿ8Ôíõø©1
+w
+java:S1104"ZMake vnp_HashSecret a static final constant or non-public and provide accessors if needed.(Ğâº¢8Ôíõø©1
+r
+java:S1104"VMake vnp_apiUrl a static final constant or non-public and provide accessors if needed.(ÎÑ»"8Á©öù©1
+R
+java:S1444"0Make this "public static vnp_PayUrl" field final(—°ÀÍşÿÿÿÿ8Ôíõø©1
+U
+java:S1444"3Make this "public static vnp_Returnurl" field final(·€ÒÙúÿÿÿÿ8Ôíõø©1
+N
+java:S1444"1Make this "public static vnp_Version" field final(¢ğúÖ8Á©öù©1
+M
+java:S1444"1Make this "public static vnp_Command" field final(Íò18Á©öù©1
+S
+java:S1444"1Make this "public static vnp_TmnCode" field final(ûÍãùÿÿÿÿ8Ôíõø©1
+Q
+java:S1444"4Make this "public static vnp_HashSecret" field final(Ğâº¢8Ôíõø©1
+L
+java:S1444"0Make this "public static vnp_apiUrl" field final(ÎÑ»"8Â©öù©1
+w
+java:S3008"URename this field "vnp_PayUrl" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—°ÀÍşÿÿÿÿ8êíõø©1
+z
+java:S3008"XRename this field "vnp_Returnurl" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·€ÒÙúÿÿÿÿ8êíõø©1
+s
+java:S3008"VRename this field "vnp_Version" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ğúÖ8Í©öù©1
+r
+java:S3008"VRename this field "vnp_Command" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íò18Í©öù©1
+x
+java:S3008"VRename this field "vnp_TmnCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûÍãùÿÿÿÿ8êíõø©1
+v
+java:S3008"YRename this field "vnp_HashSecret" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğâº¢8êíõø©1
+q
+java:S3008"URename this field "vnp_apiUrl" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÑ»"8Í©öù©1
+W
+java:S1118":Add a private constructor to hide the implicit public one.(Àóš£8ñíõø©1
+X	java:S125"<This block of commented-out lines of code should be removed.(òñŠ8Ó©öù©1
+X	java:S125d"<This block of commented-out lines of code should be removed.(Ê‹å8Ø©öù©1
+;
+java:S2119r"Save and re-use this "Random".(–áÍÈ8Ú©öù©1
+_
+java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…8¼îõø©1
+^
+java:S1128"ARemove this unused import 'java.io.UnsupportedEncodingException'.(Ãµ…“8¼îõø©1
+U
+java:S1128"8Remove this unused import 'java.security.MessageDigest'.(Œğ²»8¼îõø©1
+e
+java:S1128	"CRemove this unused import 'java.security.NoSuchAlgorithmException'.(ŒòÍ¾şÿÿÿÿ8¼îõø©1

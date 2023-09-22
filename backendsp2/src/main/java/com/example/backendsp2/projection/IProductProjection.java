@@ -1,5 +1,7 @@
 package com.example.backendsp2.projection;
 
+import com.example.backendsp2.model.ProductType;
+
 public interface IProductProjection {
     String getId();
 
@@ -10,4 +12,7 @@ public interface IProductProjection {
     String getImage();
     String getQuantity();
     String getProductType();
+    String getCreateDate();
+//    String getNameType();
+//    Long getIdType();
 }

@@ -1,0 +1,35 @@
+
+L
+java:S3740D"/Provide the parametrized type for this generic.(›µ´ê8¼ûÊ‚«1
+L
+java:S3740D"/Provide the parametrized type for this generic.(›µ´ê8½ûÊ‚«1
+Q
+java:S3740H"/Provide the parametrized type for this generic.(ÔöŠÿÿÿÿÿ8½ûÊ‚«1
+r	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È³¡±üÿÿÿÿ8¿ûÊ‚«1
+m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æµ¢®8¿ûÊ‚«1
+r	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Ñ¹²ùÿÿÿÿ8¿ûÊ‚«1
+r	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âò“øşÿÿÿÿ8¿ûÊ‚«1
+l	java:S117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó²Ş8¿ûÊ‚«1
+l	java:S117\"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ããx8¿ûÊ‚«1
+H
+java:S1452"&Remove usage of generic wildcard type.(¡ÀÏëûÿÿÿÿ8íûÊ‚«1
+]	java:S125"<This block of commented-out lines of code should be removed.(ÈÆşÕúÿÿÿÿ8íûÊ‚«1
+]	java:S125#"<This block of commented-out lines of code should be removed.(Ì´æÎúÿÿÿÿ8îûÊ‚«1
+X	java:S125%"<This block of commented-out lines of code should be removed.(êëÒ8îûÊ‚«1
+]	java:S1252"<This block of commented-out lines of code should be removed.(ÍàÜ‘ıÿÿÿÿ8òûÊ‚«1
+K
+java:S1905K")Remove this unnecessary cast to "String".(­Óµûÿÿÿÿ8÷ûÊ‚«1
+]	java:S125c"<This block of commented-out lines of code should be removed.(¿ ÿÒûÿÿÿÿ8úûÊ‚«1
+u
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8úûÊ‚«1
+h
+java:S1128"FRemove this unused import 'org.springframework.stereotype.Controller'.(øŠ—Öùÿÿÿÿ8úûÊ‚«1
+[
+java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ8úûÊ‚«1
+k
+java:S1128
+"IRemove this unused import 'org.springframework.web.servlet.ModelAndView'.(Ç¨ÿäûÿÿÿÿ8úûÊ‚«1
+_
+java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…8ûûÊ‚«1
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ûûÊ‚«1
